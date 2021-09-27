@@ -7,34 +7,34 @@ const Theme = {
 const { LIGHT, DARK } = Theme
 
 checkboxBtn.addEventListener('change', onChangeCheckbox)
-let saveTheme = localStorage.getItem('theme')
+
+let savedTheme = localStorage.getItem('theme')
+if (!savedTheme) {
+  savedTheme = LIGHT;
+  localStorage.setItem('theme', savedTheme)
+}
+
+document.querySelector('body').classList.add(savedTheme);
+checkboxBtn.checked = savedTheme === LIGHT ? false : true;
 
 
 function onChangeCheckbox(e) {
-  console.log(checkboxBtn.checked);
-  
-  // if (e.target.checked === true) {
-  //   localStorage.setItem('theme', DARK)
-  //   changeClasses(LIGHT, DARK)
-  // } else {
-  //   localStorage.setItem("theme", LIGHT)
-  //   changeClasses( DARK, LIGHT)
-  // }
-  document.querySelector("body").classList.toggle(DARK)
-  document.querySelector("body").classList.toggle(LIGHT)
-  localStorage.setItem("theme", e.target.checked ? DARK: LIGHT)
+  //<--1st solution-->
+  if (e.target.checked === true) {
+    localStorage.setItem('theme', DARK)
+    changeClasses(LIGHT, DARK)
+  } else {
+    localStorage.setItem("theme", LIGHT)
+    changeClasses( DARK, LIGHT)
+  }
+
+  // <--2nd solution-->
+  // document.querySelector("body").classList.toggle(DARK)
+  // document.querySelector("body").classList.toggle(LIGHT)
+  // localStorage.setItem("theme", e.target.checked ? DARK: LIGHT)
 }
 
-// function changeClasses( removeClass, addClass) {
-//   document.querySelector("body").classList.remove(removeClass)
-//   document.querySelector("body").classList.add(addClass)
-// }
-
-if (!saveTheme) {
-  saveTheme = LIGHT;
-  localStorage.setItem('theme', saveTheme)
+function changeClasses( removeClass, addClass) {
+  document.querySelector("body").classList.remove(removeClass)
+  document.querySelector("body").classList.add(addClass)
 }
-console.log(saveTheme);
-
-document.querySelector('body').classList.add(saveTheme);
-checkboxBtn.checked = saveTheme === LIGHT ? false : true;
