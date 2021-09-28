@@ -35,6 +35,6 @@ function onChangeCheckbox(e) {
 }
 
 function changeClasses( removeClass, addClass) {
-  document.querySelector("body").classList.remove(removeClass)
-  document.querySelector("body").classList.add(addClass)
+  document.body.classList.remove(removeClass)
+  document.body.classList.add(addClass)
 }
