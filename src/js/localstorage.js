@@ -15,7 +15,7 @@ if (!savedTheme) {
 }
 
 document.body.classList.add(savedTheme);
-checkboxBtn.checked = savedTheme === LIGHT ? false : true;
+checkboxBtn.checked = savedTheme === DARK
 
 
 function onChangeCheckbox(e) {
