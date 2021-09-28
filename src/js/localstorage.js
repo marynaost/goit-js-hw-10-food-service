@@ -14,7 +14,7 @@ if (!savedTheme) {
   localStorage.setItem('theme', savedTheme)
 }
 
-document.querySelector('body').classList.add(savedTheme);
+document.body.classList.add(savedTheme);
 checkboxBtn.checked = savedTheme === LIGHT ? false : true;
 
 
