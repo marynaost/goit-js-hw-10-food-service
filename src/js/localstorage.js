@@ -29,8 +29,8 @@ function onChangeCheckbox(e) {
   }
 
   // <--2nd solution-->
-  // document.querySelector("body").classList.toggle(DARK)
-  // document.querySelector("body").classList.toggle(LIGHT)
+  // document.body.classList.toggle(DARK)
+  // document.body.classList.toggle(LIGHT)
   // localStorage.setItem("theme", e.target.checked ? DARK: LIGHT)
 }
 
